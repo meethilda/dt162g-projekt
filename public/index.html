@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS style -->
+    <link rel="stylesheet" href="css/main.css">
+    <title>Moment 5 - Projekt</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Anslagstavla</h1>
+    <div class="container" id="app">
+        <!--<h1>Anslagstavla</h1>-->
+        <div id="note" class="notes">
+            <h2>Arbete</h2>
+            <ul>
+                <li v-for="todo in work">
+                    <input type="checkbox" :id="todo.id" class="checked" v-on:click="check(todo)" v-bind:checked="todo.done">
+                    <label :for=todo.id class="checkMark"></label>
+                    <span class="todo-p">{{ todo.item }}</span>
+                    <button class="delete" id="work-btn" v-on:click="removeTodo(todo.id)">radera</button>
+                </li>
+            </ul>
+        </div>
+        <div id="note" class="notes">
+            <h2>Hem</h2>
+            <ul>
+                <li v-for="todo in home">
+                    <input type="checkbox" :id="todo.id" class="checked" v-on:click="check(todo)" v-bind:checked="todo.done">
+                    <label :for=todo.id class="checkMark"></label>
+                    <span class="todo-p">{{ todo.item }}</span>
+                    <button class="delete" id="home-btn" v-on:click="removeTodo(todo.id)">radera</button>
+                </li>
+            </ul>
+        </div>
+        <div id="note" class="notes">
+            <h2>Studier</h2>
+            <ul>
+                <li v-for="todo in studies">
+                    <input type="checkbox" :id="todo.id" class="checked" v-on:click="check(todo)" v-bind:checked="todo.done">
+                    <label :for=todo.id class="checkMark"></label>
+                    <span class="todo-p">{{ todo.item }}</span>
+                    <button class="delete" id="studies-btn" v-on:click="removeTodo(todo.id)">radera</button>
+                </li>
+            </ul>
+        </div>
+        <div class="addBar" id="addBar">
+            <select v-model="select">
+                <option value="work">Arbete</option>
+                <option value="home">Hem</option>
+                <option value="studies">Studier</option>
+            </select>
+            <input type="text" class="todo-input" placeholder="Lägg till (Enter)" v-on:keyup.enter="addTodo">
+        </div>
+    </div>
+    <div id="bottomBar">
+        <span id="addBtn">+</span>
+    </div>
+
+</body>
+
+<script src="js/main.js"></script>
+
+</html>

@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #3d3d3d;
+  letter-spacing: 2px;
+}
+
+.notes {
+  flex: 1 0 31.33%;
+  min-width: 300px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px #3d3d3d;
+  background: #fff;
+  border-radius: 15px;
+  font-size: 1em;
+}
+
+.checkMark {
+    padding: 7px;
+    border: 3px solid #ededed;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 5px;
+    height: 5px;
+}
+.checked:checked ~ .checkMark {
+    background: #999;
+}
+
+.notes ul {
+  padding: 10px 0;
+}
+
+.notes ul li {
+  border-bottom: 1px solid #ededed;
+  padding: 15px 0;
+  list-style: none;
+  display: flex;
+}
+
+.todo-p {
+  flex-grow: 2;
+  padding: 0 10px;
+}
+
+.delete {
+    background: rgb(178,34,34);
+    border: none;
+    box-shadow: 0 0 1px #3d3d3d;
+    padding: 7px 10px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.6em;
+}
+
+.delete::after {
+    content: "x";
+    border-left: 1px solid rgb(139,0,0);
+    margin-left: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+#addBar {
+  padding: 40px;
+  background: #ededed;
+  width: 100%;
+  display: none;
+  text-align: center;
+  margin-top: auto;
+}
+
+#addBar input,
+#addBar select {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+#addBar select::-ms-expand {
+  display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+}
+
+#addBar select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA3klEQVRIS+3VMU9CMRTF8d8zBL+aizoQFhx0kUk33RzdYMNFXUFnYeGrYYyaJiUxJHDLSxodbNKpfeffc9/pbaPyaCrr+3OA++z4rtT5Pg5GuMnCY9yWQEoBE1xhlUUP8YDrCBIB0vojLvGO0yz4hm4JJAKcYYoPHGOZAUdYoIMBXrc5iQAHeMlzviFygj7O8dkWEJU4XI8chALRhn9AVKHf70VRTHu4wFfbmKZLNKt50dLBnna0imcMd/2I0phWa3Y/D1e1Xa9BCZJG0VuQNpaWKMx72xS1Fl5/WN3BN+AgJhnZQlq4AAAAAElFTkSuQmCC");
+  background-position: calc(100% - 0.5rem), 100% 0;
+  background-size: 1.5em 1.5em;
+  background-repeat: no-repeat;
+  font-size: 0.8em;
+  padding-right: 40px;
+  width: 100px;
+}
+
+.checked {
+    display: none;
+}
+
+.checked:checked ~ .todo-p {
+  text-decoration: line-through;
+  color: #999;
+}
+
+#bottomBar {
+  padding: 30px 20px;
+  position: relative;
+  background: #0a718a;
+}
+#addBtn {
+  position: absolute;
+  background: #0a718a;
+  border: 2px solid #ededed;
+  font-size: 25px;
+  top: -40%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+}
+#addBtn:hover {
+  cursor: pointer;
+}
