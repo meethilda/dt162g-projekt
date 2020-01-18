@@ -157,6 +157,6 @@ app.put("/todos/update/:id", function (req, res) {
 var port = 3000;
 
 // Connect to server
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log(`Servern är startad på port ${port}`);
 })
