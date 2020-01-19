@@ -154,7 +154,7 @@ app.put("/todos/update/:id", function (req, res) {
 })
 
 // Port for connection
-var port = process.env.PORT || 3000;
+var port = process.env.MONGODB_URL || 3000;
 
 // Connect to server
 app.listen(port, function () {
