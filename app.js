@@ -154,7 +154,7 @@ if (process.env.NODE_ENV === "production") {
     // Create searchway
     app.use(express.static(path.join(__dirname, 'public')));
 
-    app.get(/.*/, (req, res) => res.sendFile(__dirname + "public/index.html"));
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
 }
 
 // Port for connection
