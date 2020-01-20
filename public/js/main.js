@@ -113,7 +113,9 @@ $("#addBtn").click(function () {
     }
 });
 
-/*
-$("#header").click(function() {
-    $("#ulList").toggle();
-})*/
+$(function() {
+    let viewPort = $(window).width();
+    if(viewPort < 450) {
+        $("h1").css("font-size", "20px");
+    }
+})
