@@ -46,9 +46,6 @@ app.all('/*', function (req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Create searchway
-app.use(express.static(path.join(__dirname, 'public')));
-
 // REST-api
 // GET /
 app.get("/", function (req, res) {
@@ -152,6 +149,13 @@ app.put("/todos/update/:id", function (req, res) {
         res.redirect("/");
     })
 })
+
+if (process.env.NODE_ENV === "production") {
+    // Create searchway
+    app.use(express.static(path.join(__dirname, 'public')));
+
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + "public/index.html"));
+}
 
 // Port for connection
 var port = process.env.PORT || 3000;
