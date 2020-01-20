@@ -18,7 +18,7 @@ var app = new Vue({
         addTodo(e) {
             const item = e.target.value
 
-            fetch("http://localhost:3000/todos/add", {
+            fetch("todos/add", {
                 mode: 'cors',
                 method: "POST",
                 headers: {
@@ -42,7 +42,7 @@ var app = new Vue({
             this.work = this.work.filter(todo => todo.id !== id)
             this.home = this.home.filter(todo => todo.id !== id)
             this.studies = this.studies.filter(todo => todo.id !== id)
-            fetch("http://localhost:3000/todos/delete/" + id, {
+            fetch("todos/delete/" + id, {
                 method: "DELETE",
                 headers: { "content-type": "application/json" }
             })
@@ -53,7 +53,7 @@ var app = new Vue({
             // Save change to variable
             let checked = todo.done;
             // PUT change
-            fetch("http://localhost:3000/todos/update/" + todo.id, {
+            fetch("todos/update/" + todo.id, {
                 mode: 'cors',
                 method: "PUT",
                 headers: {
@@ -70,12 +70,12 @@ var app = new Vue({
 
 function loadNotes() {
     /*let urls = [
-        "http://localhost:3000/todos?category=Home",
-        "http://localhost:3000/todos?category=Work",
-        "http://localhost:3000/todos?category=Studies"
+        "todos?category=Home",
+        "todos?category=Work",
+        "todos?category=Studies"
     ];*/
 
-    let urls = ["http://localhost:3000/todos"];
+    let urls = ["todos"];
 
     Promise.all(urls.map(url =>
         fetch(url)
