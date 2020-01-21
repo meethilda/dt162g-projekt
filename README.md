@@ -3,8 +3,8 @@
 Moment 5 - Projekt
 JavaScriptbaserad webbutveckling HT18
 
-Demo, webbapplikation: https://moment-5.herokuapp.com/index.html
-Demo, API: https://moment-5.herokuapp.com/todos
+- Demo, webbapplikation: https://moment-5.herokuapp.com/index.html
+- Demo, API: https://moment-5.herokuapp.com/todos
 
 **CRUD:**
 - GET från todos:
